@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
+import * as react from 'react';
 import { colors } from './context/Colors';
 import { Image, ImageBackground, Switch, Text, Touchable, TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components';
+import { Btnsum } from './components/Btn';
 
 
 export default function App() {
     const [result, setResult] = useState('');
 
-    const colors = {
-        dark: '#22252D',
-        dark1: '#292B36',
-        dark2: '#272B33',
-        light: '#FFF',
-        light1: 'rgb(220, 220, 220)',
-        light2: '#F7F7F7',
-    };
+
 
     const calculate = (title) => {
         if (title == 'C') {
@@ -37,10 +32,13 @@ export default function App() {
                 height: 100,
                 width: 100,
                 bottom: 1,
-                elevation: 1,
+                borderWidth: 0.15,
+                borderColor: '#989898'
             }}>
             <Text
                 style={{
+                    height: 100,
+                    width: 100,
                     fontSize: 37,
                     textAlign: 'center',
                     textAlignVertical: 'center',
@@ -60,7 +58,7 @@ export default function App() {
         }
         else if (type == 'sum') {
 
-            return '#63CEEB'
+            return '#1BD3E9'
         }
         return;
     }
@@ -84,23 +82,42 @@ export default function App() {
                     textAlign: 'right',
                     paddingRight: 20,
                     color: colors.dark,
-                    marginTop: 160,
+                    marginTop: 145,
                     paddingBottom: 20
                 }}>
                 {result}
             </Text>
             <View style={{
-                flex: 3,
+                flex: 1,
                 flexDirection: "row",
                 flexWrap: 'wrap',
                 justifyContent: 'center',
-                alignItems: 'center',
                 backgroundColor: 'white',
             }}>
+
                 <View style={{ flexDirection: "row", }}>
                     <Btn title="C" type="top" />
                     <Btn title="%" type="top" />
-                    <Btn title="DL" type="top" />
+                    <TouchableOpacity
+                        onPress={() => calculate("DL")}
+                        style={{
+                            backgroundColor: colors.light,
+                            height: 100,
+                            width: 100,
+                            bottom: 1,
+                            borderWidth: 0.15,
+                            borderColor: '#989898'
+                        }}>
+                        <View>
+                            <Image source={require('/Volumes/Untitled/folder/Ncal/src/images/delete(1).png')}
+                                style={{
+                                    width: 40, height: 40, top: 30, left: 30
+                                }}
+                            >
+
+                            </Image>
+                        </View>
+                    </TouchableOpacity>
                     <Btn title="+" type="right" />
 
 
@@ -126,14 +143,73 @@ export default function App() {
                     <Btn title="1" type="number" />
                     <Btn title="2" type="number" />
                     <Btn title="3" type="number" />
-                    <Btn title="/" type="top" />
+                    <TouchableOpacity
+                        onPress={() => calculate("/")}
+                        style={{
+                            backgroundColor: colors.light,
+                            height: 100,
+                            width: 100,
+                            bottom: 1,
+                            borderWidth: 0.15,
+                            borderColor: '#989898'
+                        }}>
+                        <View>
+                            <Image source={require('/Volumes/Untitled/folder/Ncal/src/images/divided.png')}
+                                style={{
+                                    width: 40, height: 40, top: 30, left: 30
+                                }}
+                            >
+
+                            </Image>
+                        </View>
+                    </TouchableOpacity>
+
                 </View>
 
                 <View style={{ flexDirection: "row", }}>
-                    <Btn title="X" type="right" />
+                    <TouchableOpacity
+                        onPress={() => calculate("")}
+                        style={{
+                            backgroundColor: colors.light,
+                            height: 100,
+                            width: 100,
+                            bottom: 1,
+                            elevation: 1,
+                            borderWidth: 0.15,
+                            borderColor: '#989898',
+                        }}>
+                        <View>
+                            <Image source={require('/Volumes/Untitled/folder/Ncal/src/images/replace(1).png')}
+                                style={{
+                                    width: 40, height: 40, top: 30, left: 30
+                                }}
+                            >
+
+                            </Image>
+                        </View>
+                    </TouchableOpacity>
                     <Btn title="0" type="number" />
                     <Btn title="." type="number" />
-                    <Btn title="=" type="sum" />
+                    <TouchableOpacity
+                        onPress={() => calculate("=")}
+                        style={{
+                            backgroundColor: colors.light,
+                            height: 100,
+                            width: 100,
+                            bottom: 1,
+                            elevation: 1,
+                        }}>
+                        <Text
+                            style={{
+                                height: 100,
+                                width: 100,
+                                fontSize: 37,
+                                textAlign: 'center',
+                                textAlignVertical: 'center',
+                                color: colors.light,
+                                backgroundColor: colors.light3,
+                            }}>=</Text>
+                    </TouchableOpacity>
 
                 </View>
 

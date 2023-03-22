@@ -4,5 +4,6 @@ export const colors = {
     dark2: '#272B33',
     light: '#FFF',
     light1: 'rgb(220, 220, 220)',
-    light2: '#F7F7F7',
+    light2: '#F10505',
+    light3: '#6FC2F3',
 }
